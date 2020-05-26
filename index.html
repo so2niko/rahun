@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rahun</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+</head>
+<body>
+    <div class="logic columns">
+        <div class="in column is-6-desktop is-full-mobile">
+            <div class="control">    
+                <input autofocus class="input is-medium" id="dateInp" type="text" placeholder="04.12.1995"
+                v-model="bd">
+            </div>
+            <p class="control is-expanded">
+                <input class="input is-medium" type="text" placeholder="Брендан Эйх"
+                    v-model="name" >    
+            </p>
+            <div class="control">
+                <button class="button is-primary is-fullwidth is-large"
+                v-on:click="showNumbers">В КОСМОС</button>
+            </div>
+        </div>
+        <div class="out column is-6-desktop is-full-mobile">
+            <h1 class="title"
+                v-show="isShow">{{name}}</h1>
+            <h2  class="subtitle"
+                v-show="isShow">{{bd}}</h2>
+            <div class="info" 
+                v-for="num in nums"  v-show="isShow">
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img  alt="Image"
+                                v-bind:src="num.src">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                <strong>{{num.whatNum}}</strong> <small>{{num.num}}</small>
+                                <br>
+                                {{num.planet}}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="app/rahun.js"></script>
+    <script src="app/main.js"></script>
+</body>
+</html>
