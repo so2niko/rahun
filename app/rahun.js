@@ -1,11 +1,10 @@
 //Число души
 function soulNumCalc(num){
     let numbers = num.toString().split(''),
-        soulNumAnsw = 0;
-
-    numbers.forEach(function(element) {
-        soulNumAnsw += element * 1;
-    }, this);
+        soulNumAnsw = numbers.reduce((n, element) => {
+            const el = element * 1;
+            return !isNaN(el) ? n + el: n;
+        }, 0);
 
     if(soulNumAnsw > 9){
         soulNumAnsw = soulNumCalc(soulNumAnsw);
